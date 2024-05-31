@@ -1,3 +1,4 @@
+import 'package:dine_direct/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Home'),
         centerTitle: true,
       ),
-      drawer: Drawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
