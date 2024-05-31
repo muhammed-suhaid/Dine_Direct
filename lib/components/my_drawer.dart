@@ -1,4 +1,5 @@
 import 'package:dine_direct/components/my_drawer_tile.dart';
+import 'package:dine_direct/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -38,7 +39,15 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             text: 'SETTINGS',
             icon: Icons.settings,
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SettingsPage(),
+                ),
+              );
+            },
           ),
 
           //Logout list tile
