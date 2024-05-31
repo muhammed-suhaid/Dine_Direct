@@ -1,3 +1,4 @@
+import 'package:dine_direct/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dine Direct',
       theme: ThemeData(
-      
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ,
+      home: const LoginPage(),
     );
   }
 }
