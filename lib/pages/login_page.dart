@@ -1,5 +1,6 @@
 import 'package:dine_direct/components/my_button.dart';
 import 'package:dine_direct/components/my_textField.dart';
+import 'package:dine_direct/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -18,6 +19,17 @@ class _LoginPageState extends State<LoginPage> {
   //Text editing controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  //login method
+  void login() {
+    //navigating to home page
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
 
             //Sign in button
             MyButton(
-              onTap: () {},
+              onTap: login,
               text: 'Sign in',
             ),
 
