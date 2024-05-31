@@ -1,4 +1,4 @@
-import 'package:dine_direct/pages/login_page.dart';
+import 'package:dine_direct/auth/login_or_register.dart';
 import 'package:dine_direct/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,9 +21,7 @@ class MyApp extends ConsumerWidget {
       title: 'Dine Direct',
       theme: ref.watch(themeProvider).themeData,
       debugShowCheckedModeBanner: false,
-      home: LoginPage(
-        onTap: () {},
-      ),
+      home: const LoginOrRegister(),
     );
   }
 }

@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             //Logo
             Icon(
-              Icons.dinner_dining, 
+              Icons.dinner_dining,
               size: 72,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
