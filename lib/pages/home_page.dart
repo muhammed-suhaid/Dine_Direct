@@ -1,4 +1,5 @@
 import 'package:dine_direct/components/my_current_location.dart';
+import 'package:dine_direct/components/my_description_box.dart';
 import 'package:dine_direct/components/my_drawer.dart';
 import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:flutter/material.dart';
@@ -34,9 +35,10 @@ class _HomePageState extends State<HomePage> {
                   color: Theme.of(context).colorScheme.secondary,
                 ),
                 //my current location
-                MyCurrentLocation(),
+                const MyCurrentLocation(),
 
                 //description box
+                MyDescriptionBox()
               ],
             ),
           ),
