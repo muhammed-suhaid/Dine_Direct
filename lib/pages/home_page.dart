@@ -51,8 +51,13 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        body: Container(
-          color: Colors.blue,
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            Text('Hello1'),
+            Text('Hello2'),
+            Text('Hello3'), 
+          ],
         ),
       ),
     );
