@@ -1,3 +1,4 @@
+import 'package:dine_direct/components/my_current_location.dart';
 import 'package:dine_direct/components/my_drawer.dart';
 import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +22,28 @@ class _HomePageState extends State<HomePage> {
       // ),
       drawer: const MyDrawer(),
       body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) =>[MySliverAppBar(
-          child: Text('Hello'),
-          title: Text('title'),
-        ),] ,
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          MySliverAppBar(
+            title: Text('title'),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                //my current location
+                MyCurrentLocation(),
+
+                //description box
+              ],
+            ),
+          ),
+        ],
         body: Container(
           color: Colors.blue,
         ),
-       
       ),
     );
   }

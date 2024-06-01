@@ -33,9 +33,13 @@ class MySliverAppBar extends StatelessWidget {
       ),
       centerTitle: true,
       flexibleSpace: FlexibleSpaceBar(
-        background: child,
+        background: Padding(
+          padding: const EdgeInsets.only(bottom: 50),
+          child: child,
+        ),
         title: title,
         centerTitle: true,
+        expandedTitleScale: 1,
         titlePadding: const EdgeInsets.only(
           left: 0,
           right: 0,
