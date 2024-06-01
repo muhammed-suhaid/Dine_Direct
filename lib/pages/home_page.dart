@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
         centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.background,  
       ),
       drawer: const MyDrawer(),
     );

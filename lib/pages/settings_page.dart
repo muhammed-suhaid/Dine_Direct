@@ -21,8 +21,9 @@ class SettingsPage extends ConsumerWidget {
             padding: const EdgeInsets.all(25),
             margin: const EdgeInsets.all(25),
             decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(12)),
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
