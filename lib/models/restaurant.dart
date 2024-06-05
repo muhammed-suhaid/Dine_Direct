@@ -330,6 +330,7 @@ class Restaurant extends ChangeNotifier {
   //***** getters *****//
   List<Food> get menu => _menu;
 
+  List<CartItem> get cart => _cart;
   //***** operations *****//
 
   //user cart
