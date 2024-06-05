@@ -1,9 +1,12 @@
+import 'package:collection/collection.dart';
+import 'package:dine_direct/models/cart_item.dart';
 import 'package:dine_direct/models/food.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final restaurantProvider = Provider((ref) => Restaurant());
+final restaurantProvider = ChangeNotifierProvider((ref) => Restaurant());
 
-class Restaurant {
+class Restaurant extends ChangeNotifier {
   //list of food menu
   final List<Food> _menu = [
     //burgers
@@ -140,7 +143,7 @@ class Restaurant {
       name: 'Sweet Potato Fries',
       description: 'Crispy sweet potato fries with a touch of salt.',
       imagePath: 'assets/images/sides/sweet_potato_side.jpg',
-      price: 1.99,
+      price: 11.99,
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: 'Cheese Sauce', price: 0.99),
@@ -152,7 +155,7 @@ class Restaurant {
       name: 'Onion Rings',
       description: 'Golden fried onion rings.',
       imagePath: 'assets/images/sides/onion_rings_side.jpg',
-      price: 1.99,
+      price: 11.99,
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: 'Ranch Dip', price: 0.99),
@@ -165,7 +168,7 @@ class Restaurant {
       description:
           'Creamy macaroni and cheese, perfect for on-the-go snacking.',
       imagePath: 'assets/images/sides/mac_side.jpg',
-      price: 2.49,
+      price: 12.49,
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: 'Bacon Bits', price: 0.99),
@@ -177,7 +180,7 @@ class Restaurant {
       name: 'Loaded Fries',
       description: 'Fries loaded with cheese, bacon, and green onions.',
       imagePath: 'assets/images/sides/loadedfries_side.jpg',
-      price: 2.99,
+      price: 12.99,
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: 'Sour Cream', price: 0.99),
@@ -190,7 +193,7 @@ class Restaurant {
       description:
           'Toasted garlic bread slices, topped with melted butter and parsley.',
       imagePath: 'assets/images/sides/garlic_bread_side.jpg',
-      price: 1.49,
+      price: 11.49,
       category: FoodCategory.sides,
       availableAddons: [
         Addon(name: 'Extra Garlic', price: 0.99),
@@ -204,7 +207,7 @@ class Restaurant {
       name: 'Cookie Dessert',
       description: 'A classic chocolate chip cookie, crispy and chewy.',
       imagePath: 'assets/images/desserts/cookie_dessert.jpg',
-      price: 0.99,
+      price: 10.99,
       category: FoodCategory.desserts,
       availableAddons: [
         Addon(name: 'Caramel Sauce', price: 0.99),
@@ -216,7 +219,7 @@ class Restaurant {
       name: 'Doughnut Dessert',
       description: 'A sweet doughnut with a glazed topping.',
       imagePath: 'assets/images/desserts/doughnut_dessert.jpg',
-      price: 1.49,
+      price: 11.49,
       category: FoodCategory.desserts,
       availableAddons: [
         Addon(name: 'Caramel Sauce', price: 0.99),
@@ -228,7 +231,7 @@ class Restaurant {
       name: 'Chocolate Brownie',
       description: 'Rich and fudgy chocolate brownie, with chunks of chocolate',
       imagePath: 'assets/images/desserts/brownies_dessert.jpg',
-      price: 1.99,
+      price: 11.99,
       category: FoodCategory.desserts,
       availableAddons: [
         Addon(name: 'Vanilla Ice Cream', price: 0.99),
@@ -240,7 +243,7 @@ class Restaurant {
       name: 'Cake',
       description: 'A slice of delicious cake with creamy frosting.',
       imagePath: 'assets/images/desserts/cake_dessert.jpg',
-      price: 2.49,
+      price: 12.49,
       category: FoodCategory.desserts,
       availableAddons: [
         Addon(name: 'raspberry Sauce', price: 0.99),
@@ -252,7 +255,7 @@ class Restaurant {
       name: 'Cupcake',
       description: 'A cupcake with rich and creamy icing.',
       imagePath: 'assets/images/desserts/cupcake_dessert.jpg',
-      price: 1.79,
+      price: 11.79,
       category: FoodCategory.desserts,
       availableAddons: [
         Addon(name: 'Strawberry Topping', price: 0.99),
@@ -266,7 +269,7 @@ class Restaurant {
       name: 'Caramel Drink',
       description: 'A sweet caramel-flavored beverage perfect for a treat.',
       imagePath: 'assets/images/drinks/caramel_drink.jpg',
-      price: 1.49,
+      price: 11.49,
       category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: 'Extra Shot of Espresso', price: 0.99),
@@ -278,7 +281,7 @@ class Restaurant {
       name: 'Mojito',
       description: 'A refreshing mint and lime flavored drink.',
       imagePath: 'assets/images/drinks/mojito_drink.jpg',
-      price: 1.99,
+      price: 11.99,
       category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: 'Extra Mint', price: 0.49),
@@ -290,7 +293,7 @@ class Restaurant {
       name: 'Smoothie',
       description: 'A healthy fruit smoothie to refresh your day.',
       imagePath: 'assets/images/drinks/smoothie_drink.jpg',
-      price: 2.99,
+      price: 12.99,
       category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: 'Protein Powder', price: 0.99),
@@ -302,7 +305,7 @@ class Restaurant {
       name: 'Iced Tearink',
       description: 'Chilled iced tea with a hint of lemon.',
       imagePath: 'assets/images/drinks/iced_tea_drink.jpg',
-      price: 2.29,
+      price: 12.29,
       category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: 'Peach Flavor', price: 0.99),
@@ -314,7 +317,7 @@ class Restaurant {
       name: 'Lemonade',
       description: 'A classic lemonade, refreshing and sweet.',
       imagePath: 'assets/images/drinks/lemonade_drink.jpg',
-      price: 1.49,
+      price: 11.49,
       category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: 'Strawberry Flavor', price: 0.99),
@@ -329,15 +332,84 @@ class Restaurant {
 
   //***** operations *****//
 
+  //user cart
+  final List<CartItem> _cart = [];
+
   //add to cart
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    //see if there is a cart item already with the same food and selected addons
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      //check if the food items are the same
+      bool isSameFood = item.food == food;
+
+      //check if the list of selected addons are same
+      bool isSameAddons =
+          const ListEquality().equals(item.selectedAddons, selectedAddons);
+
+      return isSameFood && isSameAddons;
+    });
+
+    //if item already exists, increase it's quantity
+    if (cartItem != null) {
+      cartItem.quantity++;
+    }
+    //otherwise, add a new cart item to the cart
+    else {
+      _cart.add(
+        CartItem(
+          food: food,
+          selectedAddons: selectedAddons,
+        ),
+      );
+    }
+    notifyListeners();
+  }
 
   //remove from cart
+  void removeFromCart(CartItem cartItem) {
+    int cartIndex = _cart.indexOf(cartItem);
 
-  //get total price of cart
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
+
+//get total price of cart
+  double getTotalPrice() {
+    double total = 0.0;
+
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
+
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+
+      total += itemTotal * cartItem.quantity;
+    }
+    return total;
+  }
 
   //get total number of items in cart
+  int getTotalItemCount() {
+    int totalItemCount = 0;
+
+    for (CartItem cartItem in _cart) {
+      totalItemCount += cartItem.quantity;
+    }
+    return totalItemCount;
+  }
 
   //clear cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
   //***** helpers *****//
 

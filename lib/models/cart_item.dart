@@ -2,18 +2,18 @@ import 'package:dine_direct/models/food.dart';
 
 class CartItem {
   Food food;
-  List<Addon> selectedAddon;
+  List<Addon> selectedAddons;
   int quantity;
 
   CartItem({
     required this.food,
-    required this.selectedAddon,
+    required this.selectedAddons,
     this.quantity = 1,
   });
 
   double get totalPrice {
     double addonsPrice =
-        selectedAddon.fold(0, (sum, addon) => sum + addon.price);
+        selectedAddons.fold(0, (sum, addon) => sum + addon.price);
 
     return (food.price + addonsPrice);
   }
