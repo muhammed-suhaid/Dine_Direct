@@ -9,7 +9,7 @@ class CartPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     //user cart
-    final userCart = ref.read(restaurantProvider).cart;
+    final userCart = ref.watch(restaurantProvider).cart;
     //scaffold UI
     return Scaffold(
       appBar: AppBar(
