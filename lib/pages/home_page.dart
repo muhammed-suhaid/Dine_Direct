@@ -3,6 +3,7 @@ import 'package:dine_direct/components/my_description_box.dart';
 import 'package:dine_direct/components/my_drawer.dart';
 import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:dine_direct/components/my_tab_bar.dart';
+import 'package:dine_direct/models/food.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,8 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController =
+        TabController(length: FoodCategory.values.length, vsync: this);
   }
 
   @override
@@ -57,6 +59,8 @@ class _HomePageState extends State<HomePage>
             Text('Hello1'),
             Text('Hello2'),
             Text('Hello3'),
+            Text('Hello4'),
+            Text('Hello5'),
           ],
         ),
       ),

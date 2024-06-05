@@ -10,7 +10,7 @@ class Restaurant {
           'A juicy beef patty with melted cheddar, lettuce, tomato, and a hint of onion and pickle.',
       imagePath: 'assets/images/burgers/cheese_burger.jpg',
       price: 0.99,
-      category: FoodCategory.burgeres,
+      category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 0.99),
         Addon(name: 'Bacon', price: 1.99),
@@ -23,7 +23,7 @@ class Restaurant {
           'A delicious veggie patty with fresh lettuce, tomato, and a hint of onion and pickle.',
       imagePath: 'assets/images/burgers/vege_burger.jpg',
       price: 1.99,
-      category: FoodCategory.burgeres,
+      category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Vegan cheese', price: 0.99),
         Addon(name: 'Grilled Mushrooms', price: 1.49),
@@ -36,7 +36,7 @@ class Restaurant {
           'A beef patty with blue cheese, caramelized onions, lettuce, and tomato.',
       imagePath: 'assets/images/burgers/bluemoon_burger.jpg',
       price: 2.99,
-      category: FoodCategory.burgeres,
+      category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Sauteed mushrooms', price: 0.99),
         Addon(name: 'Fried Egg', price: 1.49),
@@ -49,7 +49,7 @@ class Restaurant {
           'A juicy beef patty with BBQ sauce, cheddar cheese, lettuce, and tomato.',
       imagePath: 'assets/images/burgers/bbq_burger.jpg',
       price: 3.49,
-      category: FoodCategory.burgeres,
+      category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Grilled Onions', price: 0.99),
         Addon(name: 'Jalapenos', price: 1.49),
@@ -62,7 +62,7 @@ class Restaurant {
           'A beef patty with grilled pineapple, ham, lettuce, and a hint of teriyaki sauce.',
       imagePath: 'assets/images/burgers/aloha_burger.jpg',
       price: 3.99,
-      category: FoodCategory.burgeres,
+      category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Teriyaki Glaze', price: 0.99),
         Addon(name: 'Extra Pineapple', price: 0.99),
