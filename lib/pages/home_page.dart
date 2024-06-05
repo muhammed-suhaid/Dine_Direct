@@ -6,6 +6,7 @@ import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:dine_direct/components/my_tab_bar.dart';
 import 'package:dine_direct/models/food.dart';
 import 'package:dine_direct/models/restaurant.dart';
+import 'package:dine_direct/pages/food_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage>
 
       return ListView.builder(
           itemCount: categoryMenu.length,
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             //get individual food
             final food = categoryMenu[index];
@@ -49,7 +50,12 @@ class _HomePageState extends State<HomePage>
             //return food tile
             return MyFoodTile(
               food: food,
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodPage(food: food),
+                ),
+              ),
             );
           });
     }).toList();

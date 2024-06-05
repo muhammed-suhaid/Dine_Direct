@@ -12,7 +12,7 @@ class Restaurant {
       description:
           'A juicy beef patty with melted cheddar, lettuce, tomato, and a hint of onion and pickle.',
       imagePath: 'assets/images/burgers/cheese_burger.jpg',
-      price: 0.99,
+      price: 10.99,
       category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 0.99),
@@ -25,7 +25,7 @@ class Restaurant {
       description:
           'A delicious veggie patty with fresh lettuce, tomato, and a hint of onion and pickle.',
       imagePath: 'assets/images/burgers/vege_burger.jpg',
-      price: 1.99,
+      price: 11.99,
       category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Vegan cheese', price: 0.99),
@@ -38,7 +38,7 @@ class Restaurant {
       description:
           'A beef patty with blue cheese, caramelized onions, lettuce, and tomato.',
       imagePath: 'assets/images/burgers/bluemoon_burger.jpg',
-      price: 2.99,
+      price: 12.99,
       category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Sauteed mushrooms', price: 0.99),
@@ -51,7 +51,7 @@ class Restaurant {
       description:
           'A juicy beef patty with BBQ sauce, cheddar cheese, lettuce, and tomato.',
       imagePath: 'assets/images/burgers/bbq_burger.jpg',
-      price: 3.49,
+      price: 13.49,
       category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Grilled Onions', price: 0.99),
@@ -64,7 +64,7 @@ class Restaurant {
       description:
           'A beef patty with grilled pineapple, ham, lettuce, and a hint of teriyaki sauce.',
       imagePath: 'assets/images/burgers/aloha_burger.jpg',
-      price: 3.99,
+      price: 13.99,
       category: FoodCategory.burgers,
       availableAddons: [
         Addon(name: 'Teriyaki Glaze', price: 0.99),
@@ -78,7 +78,7 @@ class Restaurant {
       name: 'South West Chicken Salad',
       description: 'A spicy salad with corn, beans, and a tangy dressing.',
       imagePath: 'assets/images/salads/southwest_salad.jpg',
-      price: 3.99,
+      price: 13.99,
       category: FoodCategory.salads,
       availableAddons: [
         Addon(name: 'Sour Cream', price: 0.99),
@@ -90,7 +90,7 @@ class Restaurant {
       name: 'Quinoa Salad',
       description: 'A healthy quinoa salad with fresh vegetables.',
       imagePath: 'assets/images/salads/quinoa_salad.jpg',
-      price: 9.49,
+      price: 19.49,
       category: FoodCategory.salads,
       availableAddons: [
         Addon(name: 'Avocado', price: 0.99),
@@ -102,7 +102,7 @@ class Restaurant {
       name: 'Greek Salad',
       description: 'A classic Greek salad with feta cheese and olives.',
       imagePath: 'assets/images/salads/greek_salad.jpg',
-      price: 8.49,
+      price: 18.49,
       category: FoodCategory.salads,
       availableAddons: [
         Addon(name: 'Feta', price: 0.99),
@@ -114,7 +114,7 @@ class Restaurant {
       name: 'Caesar Salad',
       description: 'A traditional Caesar salad with creamy dressing.',
       imagePath: 'assets/images/salads/caesar_salad.jpg',
-      price: 3.99,
+      price: 13.99,
       category: FoodCategory.salads,
       availableAddons: [
         Addon(name: 'Grilled Chicken', price: 0.99),
@@ -126,7 +126,7 @@ class Restaurant {
       name: 'Asian Sesame Salad',
       description: 'A fresh salad with sesame dressing and crispy wontons.',
       imagePath: 'assets/images/salads/asiansesame_salad.jpg',
-      price: 4.49,
+      price: 14.49,
       category: FoodCategory.salads,
       availableAddons: [
         Addon(name: 'Mandarian Oranges', price: 0.99),
