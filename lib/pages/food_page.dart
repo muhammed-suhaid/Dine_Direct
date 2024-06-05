@@ -1,8 +1,10 @@
 import 'package:dine_direct/components/my_button.dart';
 import 'package:dine_direct/models/food.dart';
+import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FoodPage extends StatefulWidget {
+class FoodPage extends ConsumerStatefulWidget {
   final Food food;
   final Map<Addon, bool> selectedAddons = {};
 
@@ -17,10 +19,27 @@ class FoodPage extends StatefulWidget {
   }
 
   @override
-  State<FoodPage> createState() => _FoodPageState();
+  ConsumerState<FoodPage> createState() => _FoodPageState();
 }
 
-class _FoodPageState extends State<FoodPage> {
+class _FoodPageState extends ConsumerState<FoodPage> {
+  //Add to cart method
+  void addToCart(Food food, Map<Addon, bool> selectedAddons) {
+    //close the current food page and go back to menu
+    Navigator.pop(context);
+
+    //format the selected addons
+    List<Addon> currentlyselectedAddons = [];
+    for (Addon addon in widget.food.availableAddons) {
+      if (widget.selectedAddons[addon] == true) {
+        currentlyselectedAddons.add(addon);
+      }
+    }
+
+    //add to cart
+    ref.read(restaurantProvider).addToCart(food, currentlyselectedAddons);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -120,7 +139,7 @@ class _FoodPageState extends State<FoodPage> {
 
                 //btton -> add to cart
                 MyButton(
-                  onTap: () {},
+                  onTap: () => addToCart(widget.food, widget.selectedAddons),
                   text: 'Add to cart',
                 ),
 
