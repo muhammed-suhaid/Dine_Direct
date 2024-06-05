@@ -17,23 +17,59 @@ class CartPage extends ConsumerWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: userCart.length,
-              itemBuilder: (context, index) {
-                //get individual cart item
-                final cartItem = userCart[index];
+        actions: [
+          userCart.isNotEmpty
+              ? IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text(
+                            'Are you sure you want to clear the cart?'),
+                        actions: [
+                          //cancel button
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('Cancel'),
+                          ),
 
-                //return cart tile
-                return MyCartTile(cartItem: cartItem);
-              },
-            ),
-          ),
+                          //yes button
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              ref.read(restaurantProvider).clearCart();
+                            },
+                            child: const Text('yes'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.delete),
+                )
+              : const SizedBox(),
         ],
       ),
+      body: userCart.isEmpty
+          ? const Center(
+              child: Text('No item in cart..'),
+            )
+          : Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: userCart.length,
+                    itemBuilder: (context, index) {
+                      //get individual cart item
+                      final cartItem = userCart[index];
+
+                      //return cart tile
+                      return MyCartTile(cartItem: cartItem);
+                    },
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }
