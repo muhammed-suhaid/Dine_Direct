@@ -1,4 +1,7 @@
 import 'package:dine_direct/models/food.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final restaurantProvider = Provider((ref) => Restaurant());
 
 class Restaurant {
   //list of food menu
@@ -321,9 +324,8 @@ class Restaurant {
     ),
   ];
 
-
   //***** getters *****//
-  List<Food> get menu=>_menu;
+  List<Food> get menu => _menu;
 
   //***** operations *****//
 
@@ -336,7 +338,6 @@ class Restaurant {
   //get total number of items in cart
 
   //clear cart
-
 
   //***** helpers *****//
 

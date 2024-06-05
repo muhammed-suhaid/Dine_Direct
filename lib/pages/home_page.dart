@@ -4,7 +4,9 @@ import 'package:dine_direct/components/my_drawer.dart';
 import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:dine_direct/components/my_tab_bar.dart';
 import 'package:dine_direct/models/food.dart';
+import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,6 +25,25 @@ class _HomePageState extends State<HomePage>
     super.initState();
     _tabController =
         TabController(length: FoodCategory.values.length, vsync: this);
+  }
+
+  //sort out and return a list of food items that belong to a specific category
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullMenu) {
+    return fullMenu.where((food) => food.category == category).toList();
+  }
+
+  //return list of foods in given category
+  List<Widget> getFoodinThisCategory(List<Food> fullMenu) {
+    return FoodCategory.values.map((category) {
+      List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
+      return ListView.builder(
+          itemCount: categoryMenu.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(categoryMenu[index].name),
+            );
+          });
+    }).toList();
   }
 
   @override
@@ -53,16 +74,13 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            Text('Hello1'),
-            Text('Hello2'),
-            Text('Hello3'),
-            Text('Hello4'),
-            Text('Hello5'),
-          ],
-        ),
+        body: Consumer(builder: (context, ref, child) {
+          List<Food> fullMenu = ref.read(restaurantProvider).menu;
+          return TabBarView(
+            controller: _tabController,
+            children: getFoodinThisCategory(fullMenu),
+          );
+        }),
       ),
     );
   }
