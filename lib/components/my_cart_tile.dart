@@ -24,6 +24,7 @@ class MyCartTile extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //food image
                 ClipRRect(

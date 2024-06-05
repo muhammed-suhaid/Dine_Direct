@@ -1,3 +1,4 @@
+import 'package:dine_direct/components/my_button.dart';
 import 'package:dine_direct/components/my_cart_tile.dart';
 import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
@@ -56,18 +57,29 @@ class CartPage extends ConsumerWidget {
             )
           : Column(
               children: [
+                //list of cart
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: userCart.length,
-                    itemBuilder: (context, index) {
-                      //get individual cart item
-                      final cartItem = userCart[index];
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: userCart.length,
+                          itemBuilder: (context, index) {
+                            //get individual cart item
+                            final cartItem = userCart[index];
 
-                      //return cart tile
-                      return MyCartTile(cartItem: cartItem);
-                    },
+                            //return cart tile
+                            return MyCartTile(cartItem: cartItem);
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+                //button to pay
+                MyButton(onTap: () {}, text: 'Go to checkout'),
+
+                const SizedBox(height: 25),
               ],
             ),
     );
