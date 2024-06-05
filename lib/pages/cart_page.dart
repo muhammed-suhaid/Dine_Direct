@@ -1,3 +1,4 @@
+import 'package:dine_direct/components/my_cart_tile.dart';
 import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +13,7 @@ class CartPage extends ConsumerWidget {
     //scaffold UI
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart'),
+        title: const Text('Cart'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -27,9 +28,7 @@ class CartPage extends ConsumerWidget {
                 final cartItem = userCart[index];
 
                 //return cart tile
-                return ListTile(
-                  title: Text(cartItem.food.name),
-                );
+                return MyCartTile(cartItem: cartItem);
               },
             ),
           ),
