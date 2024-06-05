@@ -149,7 +149,7 @@ class Restaurant {
       ],
     ),
     Food(
-      name: 'Onion Rings Side',
+      name: 'Onion Rings',
       description: 'Golden fried onion rings.',
       imagePath: 'assets/images/sides/onion_rings_side.jpg',
       price: 1.99,

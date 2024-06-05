@@ -1,6 +1,7 @@
 import 'package:dine_direct/components/my_current_location.dart';
 import 'package:dine_direct/components/my_description_box.dart';
 import 'package:dine_direct/components/my_drawer.dart';
+import 'package:dine_direct/components/my_food_tile.dart';
 import 'package:dine_direct/components/my_sliver_appbar.dart';
 import 'package:dine_direct/components/my_tab_bar.dart';
 import 'package:dine_direct/models/food.dart';
@@ -35,12 +36,20 @@ class _HomePageState extends State<HomePage>
   //return list of foods in given category
   List<Widget> getFoodinThisCategory(List<Food> fullMenu) {
     return FoodCategory.values.map((category) {
+      //get category menu
       List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
+
       return ListView.builder(
           itemCount: categoryMenu.length,
+          padding: const EdgeInsets.all(0),
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(categoryMenu[index].name),
+            //get individual food
+            final food = categoryMenu[index];
+
+            //return food tile
+            return MyFoodTile(
+              food: food,
+              onTap: () {},
             );
           });
     }).toList();
