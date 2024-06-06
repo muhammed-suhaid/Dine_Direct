@@ -1,5 +1,6 @@
 import 'package:dine_direct/components/my_button.dart';
 import 'package:dine_direct/components/my_textField.dart';
+import 'package:dine_direct/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -20,6 +21,43 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
+  //reister method
+  void register() async {
+    //get auth service
+    final authService = AuthService();
+
+    //check if password match -> create user
+    if (passwordController.text == confirmPasswordController.text) {
+      try {
+        await authService.signUpWithEmailPassword(
+          emailController.text,
+          passwordController.text,
+        );
+      } catch (e) {
+        if (mounted) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(e.toString()),
+            ),
+          );
+        }
+      }
+    }
+
+    //if password don't match -> show error
+    else {
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+            title: Text("Password don't match!"),
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             //Logo
             Icon(
-              Icons.lock_open_rounded,
+              Icons.dinner_dining,
               size: 72,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
@@ -41,7 +79,6 @@ class _RegisterPageState extends State<RegisterPage> {
             Text(
               'Let\'s create an account for you',
               style: TextStyle(
-                fontSize: 20,
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
@@ -77,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             //Sign in button
             MyButton(
-              onTap: () {},
+              onTap: register,
               text: 'Sign up',
             ),
 

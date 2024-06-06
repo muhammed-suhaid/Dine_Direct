@@ -1,6 +1,6 @@
 import 'package:dine_direct/components/my_button.dart';
 import 'package:dine_direct/components/my_textField.dart';
-import 'package:dine_direct/pages/home_page.dart';
+import 'package:dine_direct/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,14 +21,26 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   //login method
-  void login() {
-    //navigating to home page
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomePage(),
-      ),
-    );
+  //reister method
+  void login() async {
+    //get auth service
+    final authService = AuthService();
+
+    try {
+      await authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      if (mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    }
   }
 
   @override
