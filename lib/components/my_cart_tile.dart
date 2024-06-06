@@ -51,22 +51,21 @@ class MyCartTile extends ConsumerWidget {
                         color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    //increment or decrement quantity
+                    QuantitySelector(
+                      quantity: cartItem.quantity,
+                      food: cartItem.food,
+                      onIncrement: () {
+                        ref
+                            .watch(restaurantProvider)
+                            .addToCart(cartItem.food, cartItem.selectedAddons);
+                      },
+                      onDecrement: () {
+                        ref.watch(restaurantProvider).removeFromCart(cartItem);
+                      },
+                    ),
                   ],
-                ),
-                const Spacer(),
-
-                //increment or decrement quantity
-                QuantitySelector(
-                  quantity: cartItem.quantity,
-                  food: cartItem.food,
-                  onIncrement: () {
-                    ref
-                        .watch(restaurantProvider)
-                        .addToCart(cartItem.food, cartItem.selectedAddons);
-                  },
-                  onDecrement: () {
-                    ref.watch(restaurantProvider).removeFromCart(cartItem);
-                  },
                 ),
               ],
             ),

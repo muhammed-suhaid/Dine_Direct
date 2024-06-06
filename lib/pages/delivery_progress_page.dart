@@ -1,16 +1,35 @@
 import 'package:dine_direct/components/my_receipt.dart';
+import 'package:dine_direct/models/restaurant.dart';
+import 'package:dine_direct/services/database/firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DeliveryProgresspage extends StatelessWidget {
+class DeliveryProgresspage extends ConsumerStatefulWidget {
   const DeliveryProgresspage({super.key});
+
+  @override
+  ConsumerState<DeliveryProgresspage> createState() =>
+      _DeliveryProgresspageState();
+}
+
+class _DeliveryProgresspageState extends ConsumerState<DeliveryProgresspage> {
+  //get access to db
+  FirestoreService db = FirestoreService();
+
+  @override
+  void initState() {
+    super.initState();
+
+    //if we get to this page, submit order to firestorre db
+    String receipt = ref.read(restaurantProvider).displayCartReceipt();
+    db.saveOrderToDatabase(receipt);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Delivery in progress..'),
         backgroundColor: Colors.transparent,
-        centerTitle: true,
       ),
       body: const Column(
         children: [
