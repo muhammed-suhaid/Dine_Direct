@@ -1,4 +1,4 @@
-import 'package:dine_direct/services/auth/login_or_register.dart';
+import 'package:dine_direct/services/auth/auth_gate.dart';
 import 'package:dine_direct/firebase_options.dart';
 import 'package:dine_direct/themes/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +25,7 @@ class MyApp extends ConsumerWidget {
       title: 'Dine Direct',
       theme: ref.watch(themeProvider).themeData,
       debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(),
+      home: const AuthGate(),
     );
   }
 }
