@@ -1,4 +1,4 @@
-import 'package:dine_direct/auth/login_or_register.dart';
+import 'package:dine_direct/services/auth/login_or_register.dart';
 import 'package:dine_direct/firebase_options.dart';
 import 'package:dine_direct/themes/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
