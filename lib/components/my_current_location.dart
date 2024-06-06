@@ -1,28 +1,42 @@
+import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MyCurrentLocation extends StatelessWidget {
+class MyCurrentLocation extends ConsumerWidget {
   const MyCurrentLocation({super.key});
 
-  void openLocationSearchBox(BuildContext context) {
+  void openLocationSearchBox(BuildContext context, WidgetRef ref) {
+    TextEditingController textController = TextEditingController();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Your location'),
-        content: const TextField(
-          decoration: InputDecoration(
-            hintText: 'Search address..',
+        content: TextField(
+          controller: textController,
+          decoration: const InputDecoration(
+            hintText: 'Enter address..',
           ),
         ),
         actions: [
           //cancel button
           MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.pop(context);
+              textController.clear();
+            },
             child: const Text('Cancel'),
           ),
 
           //save button
           MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.pop(context);
+              //update delivery address
+              ref
+                  .read(restaurantProvider)
+                  .updateDeliveryAddress(textController.text);
+              textController.clear();
+            },
             child: const Text('Save'),
           ),
         ],
@@ -31,7 +45,8 @@ class MyCurrentLocation extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final String address = ref.watch(restaurantProvider).deliveryAddress;
     return Padding(
       padding: const EdgeInsets.all(25),
       child: Column(
@@ -44,12 +59,12 @@ class MyCurrentLocation extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () => openLocationSearchBox(context),
+            onTap: () => openLocationSearchBox(context, ref),
             child: Row(
               children: [
                 //address
                 Text(
-                  '7238, Your Address',
+                  address,
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),

@@ -25,7 +25,7 @@ class MyApp extends ConsumerWidget {
       title: 'Dine Direct',
       theme: ref.watch(themeProvider).themeData,
       debugShowCheckedModeBanner: false,
-      home: const AuthGate(),
+      home: const AuthGate(), 
     );
   }
 }
