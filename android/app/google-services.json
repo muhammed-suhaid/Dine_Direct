@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "377116238067",
+    "project_id": "dine-direct",
+    "storage_bucket": "dine-direct.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377116238067:android:99ef6267adfe41d6b45786",
+        "android_client_info": {
+          "package_name": "com.example.dine_direct"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfCxDKx6L_liRQb-HbKT3GCs_e6_MaA4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
