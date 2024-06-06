@@ -1,10 +1,12 @@
+import 'package:dine_direct/models/restaurant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MyReceipt extends StatelessWidget {
+class MyReceipt extends ConsumerWidget {
   const MyReceipt({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25, top: 50),
       child: Center(
@@ -20,8 +22,10 @@ class MyReceipt extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Text('Receipt here.'),
+              child: Text(ref.read(restaurantProvider).displayCartReceipt()),
             ),
+            const SizedBox(height: 25),
+            const Text('Estimated Delivery time is : 4:10 PM'),
           ],
         ),
       ),
