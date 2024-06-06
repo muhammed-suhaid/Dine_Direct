@@ -50,7 +50,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DeliveryProgresspage(),
+                    builder: (context) => const DeliveryProgresspage(),
                   ),
                 );
               },
