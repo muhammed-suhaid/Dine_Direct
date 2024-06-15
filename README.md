@@ -40,5 +40,12 @@ Dine Direct leverages a variety of Flutter packages to enhance functionality and
   -  intl: Supports internationalization and localization, ensuring the app can cater to a global audience.
 
 
+Video Link : https://youtu.be/ynfvmvrw3Q0
+
+
+https://github.com/muhammed-suhaid/Dine_Direct/assets/106069427/94e24533-236e-4ca9-9f92-2f910b7a29be
+
+
+
 
      
